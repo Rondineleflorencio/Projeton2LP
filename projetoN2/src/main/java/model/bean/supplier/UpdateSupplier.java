@@ -26,6 +26,8 @@ public class UpdateSupplier
         } catch (SQLException ex) {
             System.out.print(ex);
             JOptionPane.showMessageDialog(null, "Falha ao Atualizar");
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt);
         }
         
     }

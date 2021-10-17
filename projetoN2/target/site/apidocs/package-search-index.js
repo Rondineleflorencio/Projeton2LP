@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"connection"},{"l":"model"},{"l":"model.bean"},{"l":"model.dao"},{"l":"scr"},{"l":"view"}];updateSearchResults();
