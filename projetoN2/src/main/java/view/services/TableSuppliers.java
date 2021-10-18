@@ -18,6 +18,7 @@ public class TableSuppliers extends javax.swing.JDialog {
         
         for(Supplier a: inf.read())
         {
+            System.out.println();
             suppliers.addRow(new Object[]{
                 a.getId(),
                 a.getName(),

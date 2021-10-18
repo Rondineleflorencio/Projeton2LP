@@ -15,25 +15,15 @@ import model.DiaApanha;
 
 public class ReadByDateDao 
 {
-    public static List<DiaApanha> readForDate(int dat, String sql) {
+    public static List<DiaApanha> readForName(String name) {
         Connection con = ConnectionFactory.getConnction();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<String> tab = new ArrayList<>();
         List<DiaApanha> apanhas = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("show tables;");
-            rs = stmt.executeQuery();
-            while(rs.next())
-            {
-                tab.add(rs.getString("Tables_in_dbsafra"));
-            }
-            
-            for(String s: tab)
-            {
-                stmt = con.prepareStatement("SELECT * FROM " + s + " WHERE " + sql + " = ?");
-                stmt.setInt(1, dat);
+           
+                stmt = con.prepareStatement("SELECT * FROM " + name);
                 rs = stmt.executeQuery();
                 while (rs.next()) 
                 {
@@ -48,7 +38,7 @@ public class ReadByDateDao
                     apanha.setPago(rs.getBoolean("Pago"));
                     apanhas.add(apanha);
                 }
-            }
+            
 
         } catch (SQLException ex) {
             Logger.getLogger(ReadByDateDao.class.getName()).log(Level.SEVERE, null, ex);

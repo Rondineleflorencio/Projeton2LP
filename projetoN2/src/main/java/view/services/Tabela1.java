@@ -13,8 +13,8 @@ public class Tabela1 extends javax.swing.JDialog {
     public Tabela1(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        readJtable();
         createJboxsFornecedor();
+        readJtable();
     }
     public void readJtable()
     {
@@ -22,7 +22,7 @@ public class Tabela1 extends javax.swing.JDialog {
         valSafra.setNumRows(0);
         DiaApanhaDao inf = new DiaApanhaDao();
         
-        for(DiaApanha a: inf.read())
+        for(DiaApanha a: inf.readForName((String) boxFornecedor.getSelectedItem()))
         {
             valSafra.addRow(new Object[]{
                 a.getData(),
@@ -127,6 +127,12 @@ public class Tabela1 extends javax.swing.JDialog {
 
         jLabel9.setText("Fornecedor:");
         jLabel9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        boxFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxFornecedorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -344,6 +350,10 @@ public class Tabela1 extends javax.swing.JDialog {
 
         }
     }//GEN-LAST:event_jTSafraMouseClicked
+
+    private void boxFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxFornecedorActionPerformed
+        readJtable();
+    }//GEN-LAST:event_boxFornecedorActionPerformed
 
     /**
      * @param args the command line arguments

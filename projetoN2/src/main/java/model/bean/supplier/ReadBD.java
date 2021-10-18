@@ -18,27 +18,31 @@ public class ReadBD
         Connection con = ConnectionFactory.getConnction();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        Supplier repository = new Supplier();
         List<Supplier> suppliers = new ArrayList<>();
-        
+        int i = 0;
          try {
-             stmt = con.prepareStatement("SELECT * FROM dbsafra.suppliers;");
+             stmt = con.prepareStatement("SELECT * FROM suppliers");
              rs = stmt.executeQuery();
              
              while(rs.next())
             {
-                repository.setName(rs.getString("name"));
+                Supplier repository = new Supplier();
+                repository.setName(rs.getString("Name"));
                 repository.setContato(rs.getString("contato"));
-                repository.setId(rs.getInt("id"));
+                repository.setId(rs.getInt("Id"));
                 
                 suppliers.add(repository);
+                System.out.println(suppliers.get(i).getName());
             }
          } catch (SQLException ex) {
              Logger.getLogger(ReadBD.class.getName()).log(Level.SEVERE, null, ex);
          }finally{
              ConnectionFactory.closeConnection(con, stmt, rs);
          }
-        
+        for(Supplier a: suppliers){
+            System.out.println(suppliers.get(i).getName());
+            i++;
+        }
         return suppliers;
      }
 }

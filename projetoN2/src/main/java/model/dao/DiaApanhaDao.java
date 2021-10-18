@@ -34,10 +34,10 @@ public class DiaApanhaDao
         apanhas = ReadDao.read();
         return apanhas;
     }
-    public List<DiaApanha> readForDate(int dat, String sql)
+    public List<DiaApanha> readForName(String name)
     {
         List<DiaApanha> apanhas = new ArrayList<>();
-        apanhas = ReadByDateDao.readForDate(dat, sql);
+        apanhas = ReadByDateDao.readForName(name);
         return apanhas;
     }
 }

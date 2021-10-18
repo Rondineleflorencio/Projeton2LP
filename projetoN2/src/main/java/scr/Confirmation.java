@@ -16,4 +16,10 @@ public class Confirmation
         }
         return data;
     }
+    public static boolean supplierName(String s)
+    {
+        if(s.substring(0, 0).matches("0-9*"));
+            System.out.println("tem numero");
+        return true;
+    }
 }

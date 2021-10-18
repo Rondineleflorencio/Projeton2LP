@@ -25,7 +25,9 @@ public class CreateJbox
                 rs = stmt.executeQuery();
                 while(rs.next())
                 {
-                    tab.add(rs.getString("Tables_in_dbsafra"));
+                    if(rs.getString("Tables_in_dbsafra")!="suppliers"){
+                         tab.add(rs.getString("Tables_in_dbsafra"));
+                    }
                 }
                
             } catch (SQLException ex) {

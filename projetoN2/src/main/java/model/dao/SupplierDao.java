@@ -10,7 +10,7 @@ public class SupplierDao
 {
     public void insert(Supplier supplier)
     {
-        InsertSupplier.create(supplier);
+        InsertSupplier.post(supplier);
     }
      public void delete(Supplier supplier)
     {
@@ -20,6 +20,7 @@ public class SupplierDao
     {
         List<Supplier> supplier = new ArrayList<>();
         supplier = ReadBD.read();
+        
         return supplier;
     }
 }
