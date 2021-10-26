@@ -15,9 +15,10 @@ public class UpdateSupplier
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("Update Supplier set name = ?, contato, ? where name = ? && id = ?");
+            stmt = con.prepareStatement("Update Supplier set name = ?, contato = ?, password = ? where name = ? && id = ?");
             stmt.setString(1, fornecedor.getName());
             stmt.setString(2, fornecedor.getContato());
+            stmt.setString(5, fornecedor.getPassword());
             stmt.setString(3, fornecedor.getName());
             stmt.setInt(2, fornecedor.getId());
             

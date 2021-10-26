@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.DiaApanha;
 
-public class ReadByDateDao 
+public class ReadByTableNameDao 
 {
     public static List<DiaApanha> readForName(String name) {
         Connection con = ConnectionFactory.getConnction();
@@ -23,7 +23,7 @@ public class ReadByDateDao
 
         try {
            
-                stmt = con.prepareStatement("SELECT * FROM " + name);
+                stmt = con.prepareStatement("SELECT * FROM dbsafra." + name);
                 rs = stmt.executeQuery();
                 while (rs.next()) 
                 {
@@ -38,10 +38,9 @@ public class ReadByDateDao
                     apanha.setPago(rs.getBoolean("Pago"));
                     apanhas.add(apanha);
                 }
-            
 
         } catch (SQLException ex) {
-            Logger.getLogger(ReadByDateDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ReadByTableNameDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }

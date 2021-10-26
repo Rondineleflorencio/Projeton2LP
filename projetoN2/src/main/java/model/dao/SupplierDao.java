@@ -1,11 +1,11 @@
 package model.dao;
 import java.util.ArrayList;
 import java.util.List;
-import model.DiaApanha;
 import model.Supplier;
 import model.bean.supplier.ReadBD;
 import model.bean.supplier.DeleteSupplier;
 import model.bean.supplier.InsertSupplier;
+import model.bean.supplier.ReadByName;
 public class SupplierDao 
 {
     public void insert(Supplier supplier)
@@ -23,4 +23,8 @@ public class SupplierDao
         
         return supplier;
     }
+     public Supplier readForName(String name)
+     {
+        return ReadByName.readname(name);
+     }
 }

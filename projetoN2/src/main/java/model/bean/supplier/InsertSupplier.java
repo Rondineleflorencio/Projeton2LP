@@ -20,10 +20,11 @@ public class InsertSupplier
             Connection con = ConnectionFactory.getConnction();
             PreparedStatement stmt = null;
             try {
-                stmt = con.prepareStatement("INSERT INTO suppliers (id, name, contato)VALUES(?,?,?)");
+                stmt = con.prepareStatement("INSERT INTO suppliers (id, name, contato)VALUES(?,?,?,?)");
                 stmt.setInt(1,supplier.getId());
                 stmt.setString(2, supplier.getName());
                 stmt.setString(3, supplier.getContato());
+                stmt.setString(4, supplier.getPassword());
 
                 stmt.executeUpdate();
                 DiaApanhaDao daoapanha = new DiaApanhaDao();
@@ -35,6 +36,8 @@ public class InsertSupplier
             }finally{
                 ConnectionFactory.closeConnection(con, stmt);
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Falha ao salvar, Nome Não Pode Iniciar Com Um Numero");
         }
     }
 }

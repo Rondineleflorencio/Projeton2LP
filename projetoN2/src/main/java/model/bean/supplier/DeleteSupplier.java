@@ -24,10 +24,8 @@ public class DeleteSupplier
             
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, supplier.getName()+"Deletado com Sucesso");
-            
-            stmt = con.prepareStatement("DROP TABLE IF EXISTS ?");
-            stmt.setString(1, supplier.getName());
-            
+            stmt=null;
+            stmt = con.prepareStatement("DROP TABLE "+supplier.getName());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Tabela "+supplier.getName()+"Deletada com Sucesso");
         } catch (SQLException ex) {

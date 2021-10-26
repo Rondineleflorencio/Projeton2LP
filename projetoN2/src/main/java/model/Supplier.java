@@ -10,4 +10,6 @@ public class Supplier
     private int id;
     private String name;
     private String contato;
+    private String password;
+    
 }
