@@ -1,13 +1,12 @@
 package scr;
 
-import model.Supplier;
-import model.bean.supplier.ReadByName;
-import model.dao.SupplierDao;
+import connection.email.EmailSender;
 
 public class Test {
    public static void main(String[] args) 
    {
-       Delete.delete("joao");
+       EmailSender ender = new EmailSender();
+       ender.apply();
    }
     
 }
