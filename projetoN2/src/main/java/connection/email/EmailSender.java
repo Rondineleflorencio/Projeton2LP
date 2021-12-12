@@ -11,7 +11,7 @@ import javax.mail.internet.MimeMessage;
 
 public class EmailSender
 {
-  public void apply() {
+  public void apply(String Email, String Content) {
     Properties props = new Properties();
     /** Parâmetros de conexão com servidor Gmail */
     props.put("mail.smtp.host", "smtp.gmail.com");
@@ -20,12 +20,13 @@ public class EmailSender
     props.put("mail.smtp.auth", "true");
     props.put("mail.smtp.port", "465");
 
+    
     Session session = Session.getDefaultInstance(props,
       new javax.mail.Authenticator() {
            protected PasswordAuthentication getPasswordAuthentication()
            {
-                 return new PasswordAuthentication("rondynelif@gmail.com",
-                 "DDDoblivion8");
+                 return new PasswordAuthentication("mcontabilizador@gmail.com",
+                 "zstbserzmxonadrx");
            }
       });
 
@@ -35,14 +36,14 @@ public class EmailSender
     try {
 
       Message message = new MimeMessage(session);
-      message.setFrom(new InternetAddress("rondynelif@gmail.com"));//Remetente
+      message.setFrom(new InternetAddress("mcontabilizador@gmail.com"));//Remetente
 
       Address[] toUser = InternetAddress //Destinatário(s)
-                 .parse("rondynelif@gmail.com");
+                 .parse(Email);
 
       message.setRecipients(Message.RecipientType.TO, toUser);
-      message.setSubject("Enviando email com JavaMail");//Assunto
-      message.setText("Enviei este email utilizando JavaMail com minha conta GMail!");
+      message.setSubject("Enviando email de confirmação");//Assunto
+      message.setText("Seu Token é "+Content);
       /**Método para enviar a mensagem criada*/
       Transport.send(message);
 

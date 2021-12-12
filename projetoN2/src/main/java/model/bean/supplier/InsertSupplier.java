@@ -1,6 +1,7 @@
 package model.bean.supplier;
 
 import connection.ConnectionFactory;
+import connection.email.EmailSender;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ public class InsertSupplier
             Connection con = ConnectionFactory.getConnction();
             PreparedStatement stmt = null;
             try {
-                stmt = con.prepareStatement("INSERT INTO suppliers (id, name, contato)VALUES(?,?,?,?)");
+                stmt = con.prepareStatement("INSERT INTO suppliers (id, name, contato, password)VALUES(?,?,?,?)");
                 stmt.setInt(1,supplier.getId());
                 stmt.setString(2, supplier.getName());
                 stmt.setString(3, supplier.getContato());
@@ -30,6 +31,8 @@ public class InsertSupplier
                 DiaApanhaDao daoapanha = new DiaApanhaDao();
                 daoapanha.create(supplier);
                 JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
+                EmailSender sender = new EmailSender();
+                sender.apply(supplier.getContato(), "Voce foi registrado Com sucesso");
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Falha ao salvar");
                 Logger.getLogger(InsertSupplier.class.getName()).log(Level.SEVERE, null, ex);

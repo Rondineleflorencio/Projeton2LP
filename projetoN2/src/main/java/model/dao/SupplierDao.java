@@ -1,7 +1,10 @@
 package model.dao;
+import connection.email.EmailSender;
 import java.util.ArrayList;
 import java.util.List;
 import model.Supplier;
+import model.Token;
+import model.bean.supplier.ConfirmationTokenSupplier;
 import model.bean.supplier.ReadBD;
 import model.bean.supplier.DeleteSupplier;
 import model.bean.supplier.InsertSupplier;
@@ -10,7 +13,9 @@ public class SupplierDao
 {
     public void insert(Supplier supplier)
     {
+        
         InsertSupplier.post(supplier);
+        
     }
      public void delete(Supplier supplier)
     {

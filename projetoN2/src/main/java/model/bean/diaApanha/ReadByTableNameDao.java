@@ -23,7 +23,7 @@ public class ReadByTableNameDao
 
         try {
            
-                stmt = con.prepareStatement("SELECT * FROM dbsafra." + name);
+                stmt = con.prepareStatement("SELECT * FROM dbsafra. " + name);
                 rs = stmt.executeQuery();
                 while (rs.next()) 
                 {
