@@ -1,7 +1,7 @@
 package view.services;
 
 import view.services.cadastro.Cadastro;
-import scr.Confirmation;
+import connection.security.Confirmation;
 import view.MainFrame;
 public class LoginFrame extends javax.swing.JFrame {
     public LoginFrame() {

@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Supplier;
 import model.dao.DiaApanhaDao;
-import scr.Confirmation;
+import connection.security.Confirmation;
 
 public class InsertSupplier 
 {
