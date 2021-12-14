@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface ReadDiaByDate
 {
-     List<DiaApanha> apply(int dat, String sql, String table);
+     List<DiaApanha> apply(String supplier);
 }

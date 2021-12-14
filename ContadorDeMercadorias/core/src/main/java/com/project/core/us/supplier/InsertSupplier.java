@@ -16,7 +16,6 @@ import com.project.core.ports.driver.supplierDriver.CreateSupplierPort;
 import org.springframework.stereotype.Service;
 
 @Service
-
 public record InsertSupplier(CreateTableDia dia) implements CreateSupplierPort
 {
     @Override
