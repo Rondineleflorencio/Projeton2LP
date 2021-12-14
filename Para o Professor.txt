@@ -1,0 +1,4 @@
+O Projeto ContadoDeMercadorias é o projeto em sua forma maven, não consegui testar e nem rodar por meu notebook não aquentar.
+O Projeto projetoN2 é o proprio projeto funcionando e com algumas telas implementadas, porem em granden.
+
+Espero a compreensão sobre minha situação quanto a material para fazer essa atividade.
