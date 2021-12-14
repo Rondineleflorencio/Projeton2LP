@@ -2,3 +2,4 @@ O Projeto ContadoDeMercadorias é o projeto em sua forma maven, não consegui te
 O Projeto projetoN2 é o proprio projeto funcionando e com algumas telas implementadas, porem em granden.
 
 Espero a compreensão sobre minha situação quanto a material para fazer essa atividade.
+Vou formatar ele logo quando esse semestre acabar, por isso espero que entenda
